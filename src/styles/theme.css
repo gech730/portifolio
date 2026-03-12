@@ -1,0 +1,90 @@
+:root {
+  --primary-color: #64ffda;
+  --secondary-color: #112240;
+  --bg-dark: #0a192f;
+  --bg-light: #233554;
+  --text-light: #ccd6f6;
+  --text-white: #e6f1ff;
+  --transition: all 0.3s ease;
+  --card-bg: #112240;
+  --border-color: rgba(100, 255, 218, 0.1);
+}
+
+[data-theme="light"] {
+  --primary-color: #0d9488;
+  --secondary-color: #f0f9ff;
+  --bg-dark: #f8fafc;
+  --bg-light: #e2e8f0;
+  --text-light: #475569;
+  --text-white: #0f172a;
+  --card-bg: #ffffff;
+  --border-color: rgba(13, 148, 136, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  border-radius: 50%;
+}
+
+.theme-toggle:hover {
+  color: var(--primary-color);
+  transform: rotate(15deg);
+}
+
+.navbar.scrolled[data-theme="light"] {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar[data-theme="light"] {
+  background: transparent;
+}
+
+[data-theme="light"] .hero-gradient {
+  background: 
+    radial-gradient(ellipse at 20% 80%, rgba(0, 168, 132, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(240, 240, 240, 0.9) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(245, 245, 245, 0.5) 0%, transparent 70%);
+}
+
+[data-theme="light"] .hero-grid {
+  background-image: 
+    linear-gradient(rgba(0, 168, 132, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 168, 132, 0.05) 1px, transparent 1px);
+}
+
+[data-theme="light"] .mouse {
+  border-color: var(--primary-color);
+}
+
+[data-theme="light"] .btn-secondary:hover {
+  background: #008f6f;
+}
+
+@media (max-width: 768px) {
+  .navbar-links.active[data-theme="light"] {
+    background: var(--secondary-color);
+  }
+}
