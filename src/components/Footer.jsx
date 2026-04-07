@@ -3,9 +3,9 @@ import '../styles/footer.css';
 
 const Footer = () => {
   const socialLinks = [
-    { icon: <Github size={20} />, url: 'https://github.com', label: 'GitHub' },
-    { icon: <Linkedin size={20} />, url: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: <Mail size={20} />, url: 'mailto:example@email.com', label: 'Email' },
+    { icon: <Github size={20} />, url: 'https://github.com/gech730', label: 'GitHub' },
+    { icon: <Linkedin size={20} />, url: 'https://www.linkedin.com/in/getacher-kifilie-2a33a9362/', label: 'LinkedIn' },
+    { icon: <Mail size={20} />, url: 'mailto:getacherkifilie23@gmail.com', label: 'Email' },
   ];
 
   const scrollToTop = () => {
@@ -33,7 +33,10 @@ const Footer = () => {
         <div className="footer-divider"></div>
 
         <p className="footer-copyright">
-          Designed & Built by Getacher Kifilie
+          Designed &amp; Built by Getacher Kifilie
+        </p>
+        <p className="footer-email">
+          <a href="mailto:getacherkifilie23@gmail.com">getacherkifilie23@gmail.com</a>
         </p>
         <p className="footer-year">
           © {new Date().getFullYear()} All Rights Reserved

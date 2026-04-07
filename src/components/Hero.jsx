@@ -1,23 +1,37 @@
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Briefcase } from 'lucide-react';
 import '../styles/hero.css';
 
+const LINES = ["Hi, I'm Getacher", "AI Enthusiast | Full Stack Developer"];
+
 const Hero = () => {
+  const [lineIndex, setLineIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
-  const fullText = "Computer Science Student | MERN Stack Developer | AI Enthusiast";
-  
+  const [isDeleting, setIsDeleting] = useState(false);
+
   useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setDisplayText(fullText.slice(0, index));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 50);
-    return () => clearInterval(timer);
-  }, []);
+    const current = LINES[lineIndex];
+    let timeout;
+
+    if (!isDeleting && displayText === current) {
+      // Pause at end before deleting (don't delete the last line)
+      if (lineIndex === LINES.length - 1) return;
+      timeout = setTimeout(() => setIsDeleting(true), 1800);
+    } else if (isDeleting && displayText === '') {
+      setIsDeleting(false);
+      setLineIndex((prev) => (prev + 1) % LINES.length);
+    } else {
+      const speed = isDeleting ? 40 : 70;
+      timeout = setTimeout(() => {
+        setDisplayText(isDeleting
+          ? current.slice(0, displayText.length - 1)
+          : current.slice(0, displayText.length + 1)
+        );
+      }, speed);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, lineIndex]);
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
@@ -29,28 +43,9 @@ const Hero = () => {
 
   return (
     <section id="home" className="hero">
-      <div className="hero-background">
-        <div className="hero-gradient"></div>
-        <div className="hero-grid"></div>
-        <div className="hero-particles">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="particle"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${Math.random() * 3 + 2}s`,
-              }}
-            />
-          ))}
-        </div>
-      </div>
-
       <div className="hero-content">
         <span className="hero-greeting animate-fade-in-up">
-          Hello, I'm
+          Welcome to my portfolio
         </span>
 
         <h1 className="hero-name animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
@@ -66,6 +61,11 @@ const Hero = () => {
           I build exceptional digital experiences with modern technologies. 
           Passionate about creating innovative solutions and exploring the frontiers of AI.
         </p>
+
+        <div className="hero-open-to-work animate-fade-in-up" style={{ animationDelay: '0.75s' }}>
+          <Briefcase size={14} />
+          Available for full-time roles &amp; freelance projects
+        </div>
 
         <div className="hero-buttons animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
           <a 

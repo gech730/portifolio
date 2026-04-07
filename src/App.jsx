@@ -7,6 +7,7 @@ import './styles/hero.css';
 import './styles/about.css';
 import './styles/skills.css';
 import './styles/projects.css';
+import './styles/resume.css';
 import './styles/contact.css';
 import './styles/footer.css';
 

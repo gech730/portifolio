@@ -1,7 +1,9 @@
 .footer {
   padding: 3rem 2rem;
-  background: var(--bg-dark);
+  background: #0B0F19;
+  border-top: 1px solid rgba(6, 182, 212, 0.08);
   position: relative;
+  z-index: 1;
 }
 
 [data-theme="light"] .footer {
@@ -38,8 +40,12 @@
 .footer-divider {
   width: 60px;
   height: 1px;
-  background: var(--bg-light);
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.4), transparent);
   margin: 1.5rem auto;
+}
+
+[data-theme="light"] .footer-divider {
+  background: linear-gradient(90deg, transparent, rgba(8, 145, 178, 0.3), transparent);
 }
 
 .footer-copyright {
@@ -48,21 +54,37 @@
   margin-bottom: 0.5rem;
 }
 
+.footer-email {
+  margin-bottom: 0.4rem;
+}
+
+.footer-email a {
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.footer-email a:hover {
+  opacity: 1;
+}
+
 .footer-year {
   color: var(--text-light);
   font-size: 0.8rem;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .scroll-top-btn {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  width: 45px;
-  height: 45px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--secondary-color);
-  border: 1px solid var(--primary-color);
+  border: 1px solid rgba(6, 182, 212, 0.3);
   color: var(--primary-color);
   cursor: pointer;
   display: flex;
@@ -70,18 +92,20 @@
   justify-content: center;
   transition: all 0.3s ease;
   z-index: 100;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 [data-theme="light"] .scroll-top-btn {
   background: #ffffff;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
 }
 
 .scroll-top-btn:hover {
-  background: var(--primary-color);
-  color: var(--bg-dark);
-  transform: translateY(-5px);
+  background: linear-gradient(135deg, #06B6D4, #8B5CF6);
+  border-color: transparent;
+  color: #fff;
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
 }
 
 .scroll-top-btn:active {
@@ -89,14 +113,6 @@
 }
 
 @media (max-width: 768px) {
-  .footer {
-    padding: 2rem 1.5rem;
-  }
-
-  .scroll-top-btn {
-    bottom: 1.5rem;
-    right: 1.5rem;
-    width: 40px;
-    height: 40px;
-  }
+  .footer { padding: 2rem 1.5rem; }
+  .scroll-top-btn { bottom: 1.5rem; right: 1.5rem; width: 40px; height: 40px; }
 }

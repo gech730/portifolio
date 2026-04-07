@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import '../styles/projects.css';
-
+import pic from '../assets/image.png'
 const Projects = () => {
   const projects = [
     {
@@ -19,11 +19,11 @@ const Projects = () => {
       live: '#',
     },
     {
-      title: 'AI Chat Application',
-      description: 'An intelligent chatbot powered by AI that can answer questions, generate content, and assist with various tasks.',
-      tech: ['React', 'Node.js', 'OpenAI API', 'MongoDB'],
-      github: '#',
-      live: '#',
+      title: 'Food Delivery website',
+      description: 'A full-featured online food delivery platform with cart functionality, user authentication, and  payment integration.',
+      tech: ['React', 'Node.js','chapa payment api', 'MongoDB'],
+      github: 'https://github.com/gech730/food-delivery',
+      live: 'https://github.com/gech730/food-delivery',
     },
     {
       title: 'Portfolio Website',
@@ -84,7 +84,10 @@ const Projects = () => {
             >
               <div className="project-image">
                 <div className="project-image-placeholder">
-                  <span>Project {index + 1}</span>
+                  <span>
+                    <img style={{width:"100%",height:"100%",borderRadius:"4px",boxShadow:"0px 0px 10px white"}} src={pic} alt="" />
+
+                  </span>
                 </div>
               </div>
               

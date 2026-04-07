@@ -21,6 +21,7 @@ const Navbar = () => {
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Resume', href: '#resume' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -37,7 +38,7 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`} data-theme={theme}>
       <div className="navbar-container">
         <a href="#home" className="navbar-logo" onClick={(e) => handleNavClick(e, '#home')}>
-          <span className="logo-text">Portfolio</span>
+          <span className="logo-text">GK</span>
         </a>
 
         <ul className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
