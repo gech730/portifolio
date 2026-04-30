@@ -7,10 +7,20 @@
   margin: 0 auto;
 }
 
+.section-description {
+  font-size: 1rem;
+  color: var(--text-gray);
+  margin-top: 1rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
 .resume-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  max-width: 600px;
+  margin: 0 auto;
   margin-top: 3rem;
 }
 
