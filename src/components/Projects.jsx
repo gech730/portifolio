@@ -1,50 +1,45 @@
 import { useEffect } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import '../styles/projects.css';
-import pic from '../assets/image.png'
+import pic from '../assets/portfolio.png'
+import foodDelivery from '../assets/foodDelivery.png'
+import smart_bdu from '../assets/smartBDU.png'
+import { image } from 'framer-motion/client';
 const Projects = () => {
   const projects = [
-    {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured online shopping platform with cart functionality, user authentication, and payment integration.',
-      tech: ['React', 'Node.js', 'MongoDB', 'Express'],
-      github: '#',
-      live: '#',
-    },
-    {
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team workspaces.',
-      tech: ['React', 'Express', 'MongoDB', 'Socket.io'],
-      github: '#',
-      live: '#',
-    },
     {
       title: 'Food Delivery website',
       description: 'A full-featured online food delivery platform with cart functionality, user authentication, and  payment integration.',
       tech: ['React', 'Node.js','chapa payment api', 'MongoDB'],
       github: 'https://github.com/gech730/food-delivery',
-      live: 'https://github.com/gech730/food-delivery',
+      live: 'https://roza-frontend.vercel.app/',
+      image: foodDelivery,
     },
+    {
+      title: 'Task Management App',
+      description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team workspaces.',
+      tech: ['React', 'Express', 'MongoDB', 'Socket.io'],
+      github: 'https://github.com/gech730/studentProductiveDashboard',
+      live: 'https://student-productive-dashboard-kq48.vercel.app/',
+      image: pic,
+    },
+   
     {
       title: 'Portfolio Website',
       description: 'A responsive personal portfolio website showcasing projects, skills, and professional background.',
       tech: ['React', 'CSS3', 'Framer Motion'],
-      github: '#',
-      live: '#',
+      github: 'https://github.com/gech730/portfolio',
+      live: 'https://portifolio-five-rosy-72.vercel.app/',
+      image: pic,
     },
+  
     {
-      title: 'Weather Dashboard',
-      description: 'A beautiful weather application that displays current conditions and forecasts using weather API.',
-      tech: ['React', 'OpenWeather API', 'CSS3'],
-      github: '#',
-      live: '#',
-    },
-    {
-      title: 'Blog Platform',
-      description: 'A content management system for creating and publishing blog posts with markdown support.',
+      title: 'smartBDU',
+      description: 'A digital platform designed to improve campus life at Bahir Dar University by connecting students through essential services like skill sharing, resource exchange, and communication tools',
       tech: ['React', 'Node.js', 'MongoDB', 'Express'],
-      github: '#',
-      live: '#',
+      github: 'https://github.com/desalegnkasayemuluyekasaye-tech/Smart-BDU',
+      live: 'https://smart-bdu-client-k3p1.vercel.app/',
+      image: smart_bdu,
     },
   ];
 
@@ -85,8 +80,7 @@ const Projects = () => {
               <div className="project-image">
                 <div className="project-image-placeholder">
                   <span>
-                    <img style={{width:"100%",height:"100%",borderRadius:"4px",boxShadow:"0px 0px 10px white"}} src={pic} alt="" />
-
+                    <img style={{width:"100%",height:"100%",borderRadius:"4px",boxShadow:"0px 0px 10px white"}} src={project.image} alt="" />
                   </span>
                 </div>
               </div>
