@@ -69,11 +69,25 @@ const Projects = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="project-image">
-                <div className="project-image-placeholder">
-                  <span>
-                    <img style={{width:"100%",height:"100%",borderRadius:"4px",boxShadow:"0px 0px 10px white"}} src={project.image} alt="" />
-                  </span>
-                </div>
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-image-link"
+                  aria-label={`Visit ${project.title} live demo`}
+                >
+                  <div className="project-image-placeholder">
+                    <img
+                      style={{width:"100%",height:"100%",borderRadius:"4px",boxShadow:"0px 0px 10px white"}}
+                      src={project.image}
+                      alt={project.title}
+                    />
+                    <div className="project-image-overlay">
+                      <ExternalLink size={28} />
+                      <span>View Live</span>
+                    </div>
+                  </div>
+                </a>
               </div>
               
               <div className="project-content">

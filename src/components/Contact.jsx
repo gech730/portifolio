@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { Github, Linkedin, Mail, Send, MapPin, Phone } from 'lucide-react';
+import { Github, Linkedin, Mail, Send, MapPin, Phone, Clock } from 'lucide-react';
 import '../styles/contact.css';
 
 const EMAILJS_SERVICE_ID  = 'service_1al7wes';
@@ -36,9 +36,10 @@ const Contact = () => {
   };
 
   const contactDetails = [
-    { icon: <Mail size={18} />, label: 'Email', value: `${formData.email}`, href: 'mailto:getacherkifilie23@gmail.com' },
-    { icon: <MapPin size={18} />, label: 'Location', value: 'Ethiopia', href: null },
-    { icon: <Phone size={18} />, label: 'Available', value: 'Mon – Fri, 9am – 6pm EAT', href: null },
+    { icon: <Mail size={18} />,  label: 'Email',       value: 'getacherkifilie23@gmail.com', href: 'mailto:getacherkifilie23@gmail.com' },
+    { icon: <MapPin size={18} />, label: 'Location',   value: 'Ethiopia',                    href: 'https://maps.google.com/?q=Ethiopia' },
+    { icon: <Phone size={18} />, label: 'Phone',       value: '+251 970 143 109',             href: 'tel:+251970143109' },
+    { icon: <Phone size={18} />, label: 'Available',   value: 'Mon – Sat, anytime',           href: null },
   ];
 
   const socialLinks = [
@@ -114,7 +115,7 @@ const Contact = () => {
                     type="email" id="email" name="from_email"
                     value={formData.email}
                     onChange={(e) => setFormData(p => ({ ...p, email: e.target.value }))}
-                    required placeholder="your@email.com"
+                    required placeholder="getacher@gmail.com"
                   />
                 </div>
               </div>
@@ -125,7 +126,7 @@ const Contact = () => {
                   type="text" id="subject" name="subject"
                   value={formData.subject}
                   onChange={(e) => setFormData(p => ({ ...p, subject: e.target.value }))}
-                  required placeholder="Project inquiry / Collaboration / Hello"
+                  required placeholder=""
                 />
               </div>
 
@@ -135,7 +136,7 @@ const Contact = () => {
                   id="message" name="message"
                   value={formData.message}
                   onChange={(e) => setFormData(p => ({ ...p, message: e.target.value }))}
-                  required placeholder="Tell me about your project or idea..."
+                  required placeholder="leave me a message here ..."
                   rows="5"
                 />
               </div>
