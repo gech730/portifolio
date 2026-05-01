@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Briefcase } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import '../styles/hero.css';
 
 const LINES = ["Hi, I'm Getacher", "AI Enthusiast | Full Stack Developer"];
@@ -62,12 +62,7 @@ const Hero = () => {
           Passionate about creating innovative solutions and exploring the frontiers of AI.
         </p>
 
-        <div className="hero-open-to-work animate-fade-in-up" style={{ animationDelay: '0.75s' }}>
-          <Briefcase size={14} />
-          Available for full-time roles &amp; freelance projects
-        </div>
-
-        <div className="hero-buttons animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+        <div className="hero-buttons animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
           <a 
             href="#projects" 
             className="btn btn-primary"
@@ -84,7 +79,7 @@ const Hero = () => {
           </a>
         </div>
 
-        <div className="hero-social animate-fade-in-up" style={{ animationDelay: '1s' }}>
+        <div className="hero-social animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
           <a href="https://github.com/gech730" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <Github size={20} />
           </a>
@@ -97,7 +92,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="scroll-indicator animate-fade-in" style={{ animationDelay: '1.5s' }}>
+      <div className="scroll-indicator animate-fade-in" style={{ animationDelay: '1.2s' }}>
         <div className="mouse">
           <div className="wheel"></div>
         </div>

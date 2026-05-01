@@ -4,7 +4,6 @@ import '../styles/projects.css';
 import pic from '../assets/portfolio.png'
 import foodDelivery from '../assets/foodDelivery.png'
 import smart_bdu from '../assets/smartBDU.png'
-import { image } from 'framer-motion/client';
 const Projects = () => {
   const projects = [
     {
@@ -15,19 +14,11 @@ const Projects = () => {
       live: 'https://roza-frontend.vercel.app/',
       image: foodDelivery,
     },
-    {
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team workspaces.',
-      tech: ['React', 'Express', 'MongoDB', 'Socket.io'],
-      github: 'https://github.com/gech730/studentProductiveDashboard',
-      live: 'https://student-productive-dashboard-kq48.vercel.app/',
-      image: pic,
-    },
    
     {
       title: 'Portfolio Website',
       description: 'A responsive personal portfolio website showcasing projects, skills, and professional background.',
-      tech: ['React', 'CSS3', 'Framer Motion'],
+      tech: ['React', 'CSS3', 'Vite'],
       github: 'https://github.com/gech730/portfolio',
       live: 'https://portifolio-five-rosy-72.vercel.app/',
       image: pic,

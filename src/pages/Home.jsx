@@ -6,12 +6,10 @@ import Projects from '../components/Projects';
 import Resume from '../components/Resume';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
-import AnimatedBackground from '../components/AnimatedBackground';
 
 const Home = () => {
   return (
     <>
-      <AnimatedBackground />
       <Navbar />
       <main style={{ position: 'relative', zIndex: 1 }}>
         <Hero />

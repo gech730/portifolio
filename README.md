@@ -2,7 +2,7 @@
 
 > AI Enthusiast · Full Stack Developer · CS Student
 
-A modern, futuristic developer portfolio built with React and Vite. Features a matrix-style animated background, smooth scroll animations, dark/light theme, and a fully functional contact form.
+A modern, professional developer portfolio built with React and Vite. Features a sleek blue-black design, smooth CSS animations, dark/light theme toggle, and a fully functional contact form.
 
 ---
 
@@ -10,12 +10,12 @@ A modern, futuristic developer portfolio built with React and Vite. Features a m
 
 | Section | Description |
 |---------|-------------|
-| **Hero** | Typing animation cycling through identity lines with a cyan → purple gradient name |
+| **Hero** | Typing animation cycling through identity lines with a professional blue gradient name |
 | **About** | Profile photo with AI-themed frame — radar rings, scan line, orbit tech tags |
 | **Skills** | Grouped skill cards: Frontend, Backend & Database, Tools |
 | **Projects** | 6 project cards with tech badges, GitHub and live demo links |
-| **Resume** | Timeline-based experience, education, certifications + PDF download |
-| **Contact** | EmailJS-powered contact form with live send status |
+| **Resume** | Timeline-based education + CV download |
+| **Contact** | EmailJS-powered contact form with live send status | add some thing to include sender email address because still , i can not get sender address
 
 ---
 
@@ -24,19 +24,18 @@ A modern, futuristic developer portfolio built with React and Vite. Features a m
 **Frontend**
 - React 19
 - React Router DOM 7
-- Framer Motion — scroll-triggered animations
 - Lucide React — icons
 
 **Styling**
 - Pure CSS with CSS custom properties (no CSS framework)
 - Dark / Light theme via `data-theme` attribute
-- Color system: `#0B0F19` bg · `#06B6D4` cyan · `#8B5CF6` purple
+- Professional blue-black color system: `#0f172a` bg · `#1e40af` blue · `#374151` gray
 
 **Background Animation**
 - Canvas API — 4 layered effects:
   - Perspective scrolling grid
   - Matrix code rain (binary + hex + katakana + code symbols)
-  - Ambient glow orbs (cyan + purple)
+  - Ambient glow orbs (blue + gray)
   - Floating code snippets (`async/await`, `∇loss`, `git push`, …)
 
 **Email**
@@ -70,10 +69,9 @@ npm run preview
 ```
 src/
 ├── components/
-│   ├── AnimatedBackground.jsx  # Canvas background (matrix + grid + orbs)
 │   ├── Navbar.jsx
 │   ├── Hero.jsx                # Typing animation
-│   ├── About.jsx               # AI-themed photo frame
+│   ├── About.jsx               # Profile section
 │   ├── Skills.jsx
 │   ├── Projects.jsx
 │   ├── Resume.jsx
@@ -101,12 +99,12 @@ src/
 
 ## Features
 
+- **Professional Design** — Clean blue-black color scheme for a modern, corporate look
 - **Theme toggle** — dark/light mode persisted in `localStorage`
 - **Responsive** — mobile-first, tested down to 375px
-- **Smooth scroll** — all nav links scroll to sections
-- **Staggered animations** — Framer Motion `useInView` triggers on scroll
+- **Smooth CSS animations** — Pure CSS animations for performance and modern feel
 - **Contact form** — real email delivery via EmailJS, no backend
-- **Resume download** — links to `/public/resume.pdf`
+- **CV download** — links to `/public/GetacherCV.pdf`
 
 ---
 

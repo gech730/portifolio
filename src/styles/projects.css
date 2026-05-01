@@ -14,27 +14,30 @@
 }
 
 .project-card {
-  background: var(--secondary-color);
-  border-radius: 10px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(6, 182, 212, 0.08);
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--glass-border);
+  transition: var(--transition);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="light"] .project-card {
-  background: var(--card-bg);
-  border-color: rgba(8, 145, 178, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .project-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(6, 182, 212, 0.35);
-  box-shadow: 0 16px 40px rgba(6, 182, 212, 0.1), 0 0 0 1px rgba(6, 182, 212, 0.1);
+  border-color: var(--primary-color);
+  box-shadow: 0 20px 60px var(--glow-primary), 0 0 0 1px var(--primary-color);
 }
 
 [data-theme="light"] .project-card:hover {
-  box-shadow: 0 16px 40px rgba(8, 145, 178, 0.12);
+  box-shadow: 0 20px 60px var(--glow-primary);
 }
 
 .animate-on-scroll {

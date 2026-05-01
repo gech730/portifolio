@@ -1,30 +1,36 @@
 :root {
-  --primary-color: #06B6D4;
-  --accent-purple: #8B5CF6;
-  --secondary-color: #111827;
-  --bg-dark: #0B0F19;
-  --bg-light: #1a2235;
-  --text-light: #9CA3AF;
-  --text-white: #E5E7EB;
-  --transition: all 0.3s ease;
-  --card-bg: #111827;
-  --border-color: rgba(6, 182, 212, 0.12);
-  --glow-cyan: rgba(6, 182, 212, 0.25);
-  --glow-purple: rgba(139, 92, 246, 0.2);
+  --primary-color: #7c3aed; /* Purple */
+  --accent-color: #22d3ee; /* Cyan */
+  --secondary-color: #1e293b; /* Dark blue-gray */
+  --bg-dark: #020617; /* Deep dark */
+  --bg-light: #0f172a; /* Medium dark blue */
+  --text-light: #cbd5e1; /* Light gray */
+  --text-white: #f8fafc; /* Off-white */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --card-bg: rgba(30, 41, 59, 0.8); /* Glass effect */
+  --border-color: rgba(124, 58, 237, 0.2); /* Purple border */
+  --glow-primary: rgba(124, 58, 237, 0.3); /* Purple glow */
+  --glow-accent: rgba(34, 211, 238, 0.3); /* Cyan glow */
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="light"] {
-  --primary-color: #0891b2;
-  --accent-purple: #7c3aed;
-  --secondary-color: #f0f9ff;
-  --bg-dark: #f8fafc;
-  --bg-light: #e2e8f0;
-  --text-light: #475569;
-  --text-white: #0f172a;
-  --card-bg: #ffffff;
-  --border-color: rgba(8, 145, 178, 0.15);
-  --glow-cyan: rgba(8, 145, 178, 0.15);
-  --glow-purple: rgba(124, 58, 237, 0.12);
+  --primary-color: #7c3aed; /* Purple */
+  --accent-color: #0891b2; /* Dark cyan */
+  --secondary-color: #f1f5f9; /* Light background */
+  --bg-dark: #ffffff; /* White */
+  --bg-light: #f8fafc; /* Light gray */
+  --text-light: #64748b; /* Medium gray text */
+  --text-white: #1e293b; /* Dark blue text */
+  --card-bg: rgba(255, 255, 255, 0.9); /* Light glass effect */
+  --border-color: rgba(124, 58, 237, 0.15); /* Light purple border */
+  --glow-primary: rgba(124, 58, 237, 0.15); /* Light purple glow */
+  --glow-accent: rgba(34, 211, 238, 0.15); /* Light cyan glow */
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(0, 0, 0, 0.02);
+  --glass-border: rgba(0, 0, 0, 0.05);
 }
 
 * {

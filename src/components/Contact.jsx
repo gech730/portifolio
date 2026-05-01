@@ -1,30 +1,16 @@
 import { useState, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { Github, Linkedin, Mail, Send, MapPin, Phone } from 'lucide-react';
 import '../styles/contact.css';
 
-// ── EmailJS config ──────────────────────────────────────────────
-// 1. Sign up at https://www.emailjs.com (free tier: 200 emails/month)
-// 2. Create a service (Gmail/Outlook) → copy Service ID
-// 3. Create an email template → copy Template ID
-//    Template variables used: {{from_name}}, {{from_email}}, {{message}}
-// 4. Go to Account → API Keys → copy Public Key
-// Replace the three placeholders below:
 const EMAILJS_SERVICE_ID  = 'service_1al7wes';
 const EMAILJS_TEMPLATE_ID = 'template_al16xf7';
 const EMAILJS_PUBLIC_KEY  = 'w7kHZjjg_Q4A8v21Y';
 // ───────────────────────────────────────────────────────────────
 
-const fadeUp = (delay = 0) => ({
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, delay, ease: 'easeOut' } },
-});
-
 const Contact = () => {
   const formRef = useRef(null);
   const sectionRef = useRef(null);
-  const inView = useInView(sectionRef, { once: true, margin: '-80px' });
 
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
@@ -50,7 +36,7 @@ const Contact = () => {
   };
 
   const contactDetails = [
-    { icon: <Mail size={18} />, label: 'Email', value: 'getacherkifilie23@gmail.com', href: 'mailto:getacherkifilie23@gmail.com' },
+    { icon: <Mail size={18} />, label: 'Email', value: `${formData.email}`, href: 'mailto:getacherkifilie23@gmail.com' },
     { icon: <MapPin size={18} />, label: 'Location', value: 'Ethiopia', href: null },
     { icon: <Phone size={18} />, label: 'Available', value: 'Mon – Fri, 9am – 6pm EAT', href: null },
   ];
@@ -64,24 +50,14 @@ const Contact = () => {
   return (
     <section id="contact" className="contact" ref={sectionRef}>
       <div className="contact-container">
-        <motion.div
-          className="section-header"
-          variants={fadeUp(0)}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-        >
+        <div className="section-header fade-in-up">
           <h2 className="section-title">Get In Touch</h2>
           <div className="section-line" />
-        </motion.div>
+        </div>
 
         <div className="contact-content">
           {/* Left info panel */}
-          <motion.div
-            className="contact-info"
-            variants={fadeUp(0.1)}
-            initial="hidden"
-            animate={inView ? 'visible' : 'hidden'}
-          >
+          <div className="contact-info fade-in-up">
             <h3 className="contact-heading">Let's work together</h3>
             <p className="contact-text">
               Have a project in mind or just want to say hi? My inbox is always open.
@@ -117,15 +93,10 @@ const Contact = () => {
                 </a>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Right form */}
-          <motion.div
-            className="contact-form-wrapper"
-            variants={fadeUp(0.2)}
-            initial="hidden"
-            animate={inView ? 'visible' : 'hidden'}
-          >
+          <div className="contact-form-wrapper fade-in-up">
             <form className="contact-form" ref={formRef} onSubmit={handleSubmit}>
               <div className="form-row">
                 <div className="form-group">
@@ -169,6 +140,27 @@ const Contact = () => {
                 />
               </div>
 
+              {/* Hidden field to ensure sender email is included in message body */}
+              <input
+                type="hidden"
+                name="reply_to"
+                value={formData.email}
+              />
+              <input
+                type="hidden"
+                name="full_message"
+                value={`SENDER EMAIL: ${formData.email}
+
+From: ${formData.name} (${formData.email})
+Subject: ${formData.subject}
+
+Message:
+${formData.message}
+
+---
+Reply to: ${formData.email}`}
+              />
+
               <button type="submit" className="submit-btn" disabled={status === 'sending'}>
                 {status === 'sending' ? (
                   <><span className="spinner" /> Sending...</>
@@ -187,7 +179,7 @@ const Contact = () => {
                 </p>
               )}
             </form>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

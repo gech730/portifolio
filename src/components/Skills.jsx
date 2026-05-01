@@ -1,11 +1,5 @@
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
 import '../styles/skills.css';
-
-const fadeUp = (delay = 0) => ({
-  hidden: { opacity: 0, y: 25 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay, ease: 'easeOut' } },
-});
 
 // SVG icon paths — inline so no extra deps needed
 const icons = {
@@ -51,48 +45,34 @@ const SkillIcon = ({ name }) => {
 
 const Skills = () => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
     <section id="skills" className="skills" ref={ref}>
       <div className="skills-container">
-        <motion.div
-          className="section-header"
-          variants={fadeUp(0)}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-        >
+        <div className="section-header fade-in-up">
           <h2 className="section-title">Skills</h2>
           <div className="section-line" />
-        </motion.div>
+        </div>
 
         <div className="skill-groups">
           {skillGroups.map((group, gi) => (
-            <motion.div
+            <div
               key={group.label}
-              className="skill-group"
-              variants={fadeUp(0.1 + gi * 0.1)}
-              initial="hidden"
-              animate={inView ? 'visible' : 'hidden'}
+              className="skill-group fade-in-up"
             >
               <h3 className="skill-group-label">{group.label}</h3>
               <div className="skill-cards">
                 {group.skills.map((name, si) => (
-                  <motion.div
+                  <div
                     key={name}
-                    className="skill-card"
-                    variants={fadeUp(0.15 + gi * 0.1 + si * 0.05)}
-                    initial="hidden"
-                    animate={inView ? 'visible' : 'hidden'}
-                    whileHover={{ y: -6, scale: 1.04 }}
-                    transition={{ type: 'spring', stiffness: 300 }}
+                    className="skill-card fade-in-up"
                   >
                     <SkillIcon name={name} />
                     <span className="skill-card-name">{name}</span>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
