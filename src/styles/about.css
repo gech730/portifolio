@@ -78,32 +78,45 @@
 ═══════════════════════════════════════════════ */
 .about-image-wrapper {
   position: relative;
+  display: grid;
+  place-items: center;
 }
 
 .about-img-frame {
   position: relative;
-  border-radius: 16px;
-  overflow: visible;
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.about-img-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.16), transparent 35%);
 }
 
 .about-img {
   width: 100%;
-  height: 380px;
+  aspect-ratio: 4 / 5;
+  max-height: 520px;
   object-fit: cover;
-  object-position: top center;
-  border-radius: 16px;
+  object-position: center;
+  border-radius: 24px;
   display: block;
   border: 1px solid var(--glass-border);
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 28px 80px rgba(0, 0, 0, 0.35),
     0 0 0 1px var(--glass-border);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .about-img-frame:hover .about-img {
-  transform: scale(1.02);
+  transform: scale(1.03);
   box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.5),
+    0 32px 90px rgba(0, 0, 0, 0.45),
     0 0 40px var(--glow-primary);
 }
 

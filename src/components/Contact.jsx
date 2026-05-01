@@ -12,7 +12,7 @@ const Contact = () => {
   const formRef = useRef(null);
   const sectionRef = useRef(null);
 
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', subject: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
 
   const handleChange = (e) =>
@@ -29,7 +29,7 @@ const Contact = () => {
         EMAILJS_PUBLIC_KEY
       );
       setStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setFormData({ name: '', subject: '', message: '' });
     } catch {
       setStatus('error');
     }
@@ -110,24 +110,14 @@ const Contact = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="subject">Subject</label>
                   <input
-                    type="email" id="email" name="from_email"
-                    value={formData.email}
-                    onChange={(e) => setFormData(p => ({ ...p, email: e.target.value }))}
-                    required placeholder="getacher@gmail.com"
+                    type="text" id="subject" name="subject"
+                    value={formData.subject}
+                    onChange={(e) => setFormData(p => ({ ...p, subject: e.target.value }))}
+                    required placeholder=""
                   />
                 </div>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="subject">Subject</label>
-                <input
-                  type="text" id="subject" name="subject"
-                  value={formData.subject}
-                  onChange={(e) => setFormData(p => ({ ...p, subject: e.target.value }))}
-                  required placeholder=""
-                />
               </div>
 
               <div className="form-group">
@@ -144,22 +134,15 @@ const Contact = () => {
               {/* Hidden field to ensure sender email is included in message body */}
               <input
                 type="hidden"
-                name="reply_to"
-                value={formData.email}
-              />
-              <input
-                type="hidden"
                 name="full_message"
-                value={`SENDER EMAIL: ${formData.email}
-
-From: ${formData.name} (${formData.email})
+                value={`From: ${formData.name}
 Subject: ${formData.subject}
 
 Message:
 ${formData.message}
 
 ---
-Reply to: ${formData.email}`}
+Note: No email provided for reply.`}
               />
 
               <button type="submit" className="submit-btn" disabled={status === 'sending'}>

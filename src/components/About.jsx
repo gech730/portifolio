@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { GraduationCap, Heart, Target, Code2 } from 'lucide-react';
 import '../styles/about.css';
-import photo from '../assets/myphoto.jpg';
+import photo from '../assets/myphoto2.png';
 
 const infoCards = [
   {
@@ -68,7 +68,7 @@ const About = () => {
                 src={photo}
                 alt="Getacher Kifilie — Full Stack Developer"
                 className="about-img"
-                loading="lazy"
+                loading="fast"
               />
               {/* Decorative corner accents */}
               <span className="img-corner img-corner-tl" aria-hidden="true" />

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
-import photo from '../assets/myphoto.jpg';
+import photo from '../assets/image.png';
 import '../styles/hero.css';
 
 const LINES = [
