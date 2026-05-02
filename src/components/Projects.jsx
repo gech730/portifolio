@@ -15,14 +15,14 @@ const Projects = () => {
       image: foodDelivery,
     },
    
-    {
-      title: 'Portfolio Website',
-      description: 'A responsive personal portfolio website showcasing projects, skills, and professional background.',
-      tech: ['React', 'CSS3', 'Vite'],
-      github: 'https://github.com/gech730/portfolio',
-      live: 'https://portifolio-five-rosy-72.vercel.app/',
-      image: pic,
-    },
+    // {
+    //   title: 'Portfolio Website',
+    //   description: 'A responsive personal portfolio website showcasing projects, skills, and professional background.',
+    //   tech: ['React', 'CSS3', 'Vite'],
+    //   github: 'https://github.com/gech730/portfolio',
+    //   live: 'https://portifolio-five-rosy-72.vercel.app/',
+    //   image: pic,
+    // },
   
     {
       title: 'smartBDU',
