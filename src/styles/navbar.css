@@ -148,6 +148,13 @@ body {
   transform: translateY(-3px);
 }
 
+/* Groups theme toggle + social + hamburger on the right */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .mobile-menu-btn {
   display: none;
   background: none;
@@ -171,6 +178,16 @@ body {
     z-index: 1001;
   }
 
+  /* Hide social links on mobile, but keep theme toggle visible */
+  .navbar-social {
+    display: none;
+  }
+
+  /* theme-toggle stays visible — it's outside .navbar-social */
+  .theme-toggle {
+    display: flex;
+  }
+
   .navbar-links {
     position: fixed;
     top: 0;
@@ -185,6 +202,7 @@ body {
     transform: translateX(100%);
     transition: var(--transition);
     box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
   }
 
   [data-theme="light"] .navbar-links {
@@ -197,9 +215,5 @@ body {
 
   .navbar-links a {
     font-size: 1.2rem;
-  }
-
-  .navbar-social {
-    display: none;
   }
 }

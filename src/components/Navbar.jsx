@@ -51,28 +51,34 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className="navbar-social">
+        <div className="navbar-right">
+          {/* Theme toggle — always visible on all screen sizes */}
           <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
-          <a href="https://github.com/gech730" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <Github size={20} />
-          </a>
-          <a href="https://www.linkedin.com/in/getacher-kifilie-2a33a9362/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <Linkedin size={20} />
-          </a>
-          <a href="mailto:getacherkifilie23@gmail.com" aria-label="Email">
-            <Mail size={20} />
-          </a>
-        </div>
 
-        <button 
-          className="mobile-menu-btn" 
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          {/* Social links — hidden on mobile */}
+          <div className="navbar-social">
+            <a href="https://github.com/gech730" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <Github size={20} />
+            </a>
+            <a href="https://www.linkedin.com/in/getacher-kifilie-2a33a9362/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <Linkedin size={20} />
+            </a>
+            <a href="mailto:getacherkifilie23@gmail.com" aria-label="Email">
+              <Mail size={20} />
+            </a>
+          </div>
+
+          {/* Hamburger — mobile only */}
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
     </nav>
   );
