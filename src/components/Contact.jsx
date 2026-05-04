@@ -1,26 +1,30 @@
 import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { Github, Linkedin, Mail, Send, MapPin, Phone, Clock } from 'lucide-react';
+import { Github, Linkedin, Mail, Send, MapPin, Phone } from 'lucide-react';
 import '../styles/contact.css';
 
-const EMAILJS_SERVICE_ID  = 'service_1al7wes';
-const EMAILJS_TEMPLATE_ID = 'template_al16xf7';
-const EMAILJS_PUBLIC_KEY  = 'w7kHZjjg_Q4A8v21Y';
-// ───────────────────────────────────────────────────────────────
 
+const EMAILJS_SERVICE_ID  ='service_ro4tclq';
+const EMAILJS_TEMPLATE_ID = 'template_sxfoqor';
+const EMAILJS_PUBLIC_KEY  ='4Yg6ZJrf3ukCoTOHq';
+console.log(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY);
 const Contact = () => {
   const formRef = useRef(null);
   const sectionRef = useRef(null);
 
-  const [formData, setFormData] = useState({ name: '', subject: '', message: '' });
-  const [status, setStatus] = useState('idle'); // idle | sending | success | error
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
-  const handleChange = (e) =>
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
+
     try {
       await emailjs.sendForm(
         EMAILJS_SERVICE_ID,
@@ -28,18 +32,28 @@ const Contact = () => {
         formRef.current,
         EMAILJS_PUBLIC_KEY
       );
+
       setStatus('success');
-      setFormData({ name: '', subject: '', message: '' });
-    } catch {
+
+      // reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+
+    } catch (error) {
+      console.error(error);
       setStatus('error');
     }
   };
 
   const contactDetails = [
-    { icon: <Mail size={18} />,  label: 'Email',       value: 'getacherkifilie23@gmail.com', href: 'mailto:getacherkifilie23@gmail.com' },
-    { icon: <MapPin size={18} />, label: 'Location',   value: 'Ethiopia',                    href: 'https://maps.google.com/?q=Ethiopia' },
-    { icon: <Phone size={18} />, label: 'Phone',       value: '+251 970 143 109',             href: 'tel:+251970143109' },
-    { icon: <Phone size={18} />, label: 'Available',   value: 'Mon – Sat, anytime',           href: null },
+    { icon: <Mail size={18} />, label: 'Email', value: 'getacherkifilie23@gmail.com', href: 'mailto:getacherkifilie23@gmail.com' },
+    { icon: <MapPin size={18} />, label: 'Location', value: 'Ethiopia', href: 'https://maps.google.com/?q=Ethiopia' },
+    { icon: <Phone size={18} />, label: 'Phone', value: '+251 970 143 109', href: 'tel:+251970143109' },
+    { icon: <Phone size={18} />, label: 'Available', value: 'Mon – Sat, anytime', href: null },
   ];
 
   const socialLinks = [
@@ -51,13 +65,15 @@ const Contact = () => {
   return (
     <section id="contact" className="contact" ref={sectionRef}>
       <div className="contact-container">
+
         <div className="section-header fade-in-up">
           <h2 className="section-title">Get In Touch</h2>
           <div className="section-line" />
         </div>
 
         <div className="contact-content">
-          {/* Left info panel */}
+
+          {/* LEFT SIDE */}
           <div className="contact-info fade-in-up">
             <h3 className="contact-heading">Let's work together</h3>
             <p className="contact-text">
@@ -96,55 +112,69 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Right form */}
+          {/* RIGHT SIDE (FORM) */}
           <div className="contact-form-wrapper fade-in-up">
             <form className="contact-form" ref={formRef} onSubmit={handleSubmit}>
+
               <div className="form-row">
+                {/* NAME */}
                 <div className="form-group">
                   <label htmlFor="name">Name</label>
                   <input
-                    type="text" id="name" name="from_name"
+                    type="text"
+                    id="name"
+                    name="from_name"
                     value={formData.name}
                     onChange={(e) => setFormData(p => ({ ...p, name: e.target.value }))}
-                    required placeholder="Your Name"
+                    required
+                    placeholder="Your Name"
                   />
                 </div>
+
+                {/* EMAIL */}
                 <div className="form-group">
-                  <label htmlFor="subject">Subject</label>
+                  <label htmlFor="email">Email</label>
                   <input
-                    type="text" id="subject" name="subject"
-                    value={formData.subject}
-                    onChange={(e) => setFormData(p => ({ ...p, subject: e.target.value }))}
-                    required placeholder=""
+                    type="email"
+                    id="email"
+                    name="from_email"
+                    value={formData.email}
+                    onChange={(e) => setFormData(p => ({ ...p, email: e.target.value }))}
+                    required
+                    placeholder="Your Email"
                   />
                 </div>
               </div>
 
+              {/* SUBJECT */}
+              <div className="form-group">
+                <label htmlFor="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={(e) => setFormData(p => ({ ...p, subject: e.target.value }))}
+                  required
+                  placeholder="Subject"
+                />
+              </div>
+
+              {/* MESSAGE */}
               <div className="form-group">
                 <label htmlFor="message">Message</label>
                 <textarea
-                  id="message" name="message"
+                  id="message"
+                  name="message"
                   value={formData.message}
                   onChange={(e) => setFormData(p => ({ ...p, message: e.target.value }))}
-                  required placeholder="leave me a message here ..."
+                  required
+                  placeholder="Leave me a message..."
                   rows="5"
                 />
               </div>
 
-              {/* Hidden field to ensure sender email is included in message body */}
-              <input
-                type="hidden"
-                name="full_message"
-                value={`From: ${formData.name}
-Subject: ${formData.subject}
-
-Message:
-${formData.message}
-
----
-Note: No email provided for reply.`}
-              />
-
+              {/* SUBMIT BUTTON */}
               <button type="submit" className="submit-btn" disabled={status === 'sending'}>
                 {status === 'sending' ? (
                   <><span className="spinner" /> Sending...</>
@@ -153,17 +183,21 @@ Note: No email provided for reply.`}
                 )}
               </button>
 
+              {/* STATUS */}
               {status === 'success' && (
                 <p className="form-status success">Message sent! I'll get back to you soon.</p>
               )}
+
               {status === 'error' && (
                 <p className="form-status error">
                   Something went wrong. Please email me directly at{' '}
                   <a href="mailto:getacherkifilie23@gmail.com">getacherkifilie23@gmail.com</a>
                 </p>
               )}
+
             </form>
           </div>
+
         </div>
       </div>
     </section>
