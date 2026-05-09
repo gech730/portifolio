@@ -4,6 +4,7 @@ import '../styles/projects.css';
 import pic from '../assets/portfolio.png'
 import foodDelivery from '../assets/foodDelivery.png'
 import smart_bdu from '../assets/smartBDU.png'
+import smart_bdu_assistant from '../assets/smartbdu_ai.png'
 const Projects = () => {
   const projects = [
     {
@@ -15,14 +16,14 @@ const Projects = () => {
       image: foodDelivery,
     },
    
-    // {
-    //   title: 'Portfolio Website',
-    //   description: 'A responsive personal portfolio website showcasing projects, skills, and professional background.',
-    //   tech: ['React', 'CSS3', 'Vite'],
-    //   github: 'https://github.com/gech730/portfolio',
-    //   live: 'https://portifolio-five-rosy-72.vercel.app/',
-    //   image: pic,
-    // },
+    {
+      title: 'smart bdu ai assistant',
+      description: 'An AI-powered chatbot designed to assist students at Bahir Dar University with academic inquiries, campus information, and personalized support.',
+      tech: ['React', 'CSS3', 'Vite', 'haggingface api', 'Node.js', 'Express', 'MongoDB'],
+      github: 'https://github.com/gech730/smartBDU-AI',
+      live: 'https://smartbdu-assistant.vercel.app/',
+      image: smart_bdu_assistant,
+    },
   
     {
       title: 'smartBDU',
