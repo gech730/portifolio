@@ -5,6 +5,7 @@ import pic from '../assets/portfolio.png'
 import foodDelivery from '../assets/foodDelivery.png'
 import smart_bdu from '../assets/smartBDU.png'
 import smart_bdu_assistant from '../assets/smartbdu_ai.png'
+import stud from '../assets/stud.png'
 const Projects = () => {
   const projects = [
     {
@@ -26,13 +27,21 @@ const Projects = () => {
     },
   
     {
+      title: 'student productive dashboard',
+      description: 'A modern web application designed to help students improve productivity, manage academic tasks, and organize daily activities efficiently.',
+      tech: ['React', 'Node.js', 'MongoDB', 'Express'],
+      github: 'https://github.com/gech730/studentProductiveDashboard',
+      live: 'https://student-productive-dashboard.vercel.app/',
+      image: stud,
+    },
+      {
       title: 'smartBDU',
       description: 'A digital platform designed to improve campus life at Bahir Dar University by connecting students through essential services like skill sharing, resource exchange, and communication tools',
       tech: ['React', 'Node.js', 'MongoDB', 'Express'],
-      github: 'https://github.com/desalegnkasayemuluyekasaye-tech/Smart-BDU',
-      live: 'https://smart-bdu-client-k3p1.vercel.app/',
+      github: 'https://github.com/gech730/smartBDU',
+      live: 'https://smartbdu.vercel.app',
       image: smart_bdu,
-    },
+    }
   ];
 
   useEffect(() => {
