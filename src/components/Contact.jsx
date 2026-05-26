@@ -73,7 +73,7 @@ const Contact = () => {
 
         <div className="contact-content">
 
-          {/* LEFT SIDE */}
+  
           <div className="contact-info fade-in-up">
             <h3 className="contact-heading">Let's work together</h3>
             <p className="contact-text">

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { GraduationCap, Heart, Target, Code2 } from 'lucide-react';
 import '../styles/about.css';
-import photo from '../assets/myphoto2.png';
+import photo from '../assets/gech.jpg'
 
 const infoCards = [
   {
