@@ -8,7 +8,7 @@ A modern, professional developer portfolio built with **React + Vite**. Features
 
 ## 🔗 Live Demo
 
-[https://portifolio-five-rosy-72.vercel.app/](https://portifolio-five-rosy-72.vercel.app/)
+[https://portifolio-iem2.vercel.app]
 
 ---
 
